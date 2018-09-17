@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import "./Header.css";
-import { Tab, Tabs, FormControl, FormGroup, Button } from 'react-bootstrap';
+import {FormControl, FormGroup, Button } from 'react-bootstrap';
 import {setCity,setMaxPrice,setMinPrice} from '../actions';
 class TabSecond extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class TabSecond extends Component {
     changeMinPrice = (value, check) => {
         console.log(value);
         this.setState({ minPrice: value });
-        if (check != 0) {
+        if (check !== 0) {
             document.getElementById("min-list").style.display = "none";
             document.getElementById("max-list").style.display = "block";
         }
@@ -44,7 +44,7 @@ class TabSecond extends Component {
     changeMaxPrice(value, check) {
         this.setState({ maxPrice: value });
 
-        if (check != 0) {
+        if (check !== 0) {
             document.getElementById('hided-dropdown').style.display = "none";
         }
     }
@@ -57,7 +57,7 @@ class TabSecond extends Component {
         }
     }
     setParam() {
-        if (this.state.city.trim().length != 0) {
+        if (this.state.city.trim().length !== 0) {
             this.props.setCity(this.state.city);
         }
         else {

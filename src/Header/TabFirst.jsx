@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import "./Header.css";
-import {Tab,Tabs,FormControl,FormGroup,Button} from 'react-bootstrap';
+import {FormControl,FormGroup,Button} from 'react-bootstrap';
 import {setCarName} from '../actions';
 import {connect} from 'react-redux';
 class TabFirst extends Component
@@ -33,7 +33,7 @@ render()
                     </div>
                     <div className="col-xs-2 no-padding">
                         <Button bsStyle="success" onClick={() => {
-                            if (this.state.carName.trim().length != 0) {
+                            if (this.state.carName.trim().length !== 0) {
                                 this.props.setCarName(this.state.carName);
                             }
                             else {

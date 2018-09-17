@@ -37,8 +37,8 @@ render()
                </div>
                <div className="col-sm-4 col-xs-12 footer-store-section">
                <h2 className="footer-mid-title">Download App Now</h2>
-               <img src={googlePlayicon} className="img-responsive footer-store-icon"/>
-               <img src={iTunesicon} className="img-responsive footer-store-icon"/>
+               <img src={googlePlayicon} alt="google-play-icon"className="img-responsive footer-store-icon"/>
+               <img src={iTunesicon} alt="i-tunes-icon" className="img-responsive footer-store-icon"/>
                </div>
                </div>
              </div>

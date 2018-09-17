@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Header.css";
-import { Tab, Tabs, FormControl, FormGroup, Button } from 'react-bootstrap';
+import { Tab, Tabs} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import TabFirst from './TabFirst';
 import TabSecond from './TabSecond';
@@ -9,7 +9,6 @@ class HeaderBanner extends Component {
         super(props);
         this.state = {
             key: 1,
-            carName: '',
         }
     }
 
@@ -18,11 +17,7 @@ class HeaderBanner extends Component {
     }
 
     render() {
-        console.log('props', this.props);
-        console.log('max-price', this.state.maxPrice);
-        console.log('minPrice', this.state.minPrice);
         return (
-
             <div className="col-sm-offset-7 col-xs-offset-1 head-banner">
                 <h2 className="white">FIND THE RIGHT CAR</h2>
                 <Tabs
