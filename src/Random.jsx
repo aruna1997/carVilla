@@ -14,22 +14,24 @@ export default class Test extends React.Component {
  
     setTimeout(() => {
       this.setState({
-        children: this.createChildren(6),
+        children: this.createChildren(4),
       })
-    }, 100); 
+    }, 1000); 
     /* this.setState({
       children: this.createChildren(20),
     }) */
   }
  
   createChildren = n => range(n).map(i =>
-     <div key={i} className="car-card">
-     <img src={this.props.data[i].src} alt={this.props.data[i].name+"image"} className="img-responsive" style={{width:'100%'}}/>
-     <h2 className="car-name">{this.props.data[i].name}</h2>
+    <div key={i} className="car-card">
+     <img src={"http://172.18.3.90:3000"+this.props.data[i].image.url} alt={this.props.data[i].name+"image"} className="img-responsive" style={{width:'350px',height:'200px'}}/>
+     <h2 className="car-name">{this.props.data[i].name.toUpperCase()}</h2>
      <div>
-     <span className="car-location">Location:{this.props.data[i].city}</span>
+     <span className="car-location">&#x20b9;{(this.props.data[i].price/100000).toFixed(2)}Lakh</span>
+     <br/><span className="subtitle">Estimated price</span>
      </div>
-     <span className="car-location"> Estimated Price: &#x20b9;{(this.props.data[i].price/100000).toFixed(2)}Lakh</span>
+     <span className="car-location">{this.props.data[i].location.toUpperCase()}</span>
+     <br/><span className="subtitle">Location</span>
      </div>);
  
   changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
@@ -39,8 +41,8 @@ export default class Test extends React.Component {
       activeItemIndex,
       children,
     } = this.state;
-  
-   
+   console.log('props',this.props);
+
     return (
       <ItemsCarousel
         numberOfCards={3}

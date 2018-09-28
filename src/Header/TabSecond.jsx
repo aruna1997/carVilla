@@ -73,6 +73,8 @@ class TabSecond extends Component {
 
     }
     render() {
+        console.log('props2',this.props);
+        
         return (
             <form>
                 <FormGroup
@@ -165,4 +167,9 @@ class TabSecond extends Component {
         )
     }
 }
-export default connect(null, { setCity, setMaxPrice, setMinPrice })(TabSecond);
+function mapStateToProps(state)
+{
+    const {carName} = state;
+    return {carName};
+}
+export default connect(mapStateToProps, { setCity, setMaxPrice, setMinPrice })(TabSecond);

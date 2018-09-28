@@ -3,7 +3,7 @@ import "./Header.css";
 import {FormControl,FormGroup,Button} from 'react-bootstrap';
 import {setCarName} from '../actions';
 import {connect} from 'react-redux';
-class TabFirst extends Component
+export class TabFirst extends Component
 {
  constructor(props)
  {
@@ -19,7 +19,6 @@ class TabFirst extends Component
 render()
 {
     return (
-        <form>
             <FormGroup>
                 <div className="row">
                     <div className="col-xs-10 no-padding">
@@ -32,7 +31,7 @@ render()
                         />
                     </div>
                     <div className="col-xs-2 no-padding">
-                        <Button bsStyle="success" onClick={() => {
+                        <Button id="find-car-button" bsStyle="success" onClick={() => {
                             if (this.state.carName.trim().length !== 0) {
                                 this.props.setCarName(this.state.carName);
                             }
@@ -43,8 +42,11 @@ render()
                     </div>
                 </div>
             </FormGroup>
-        </form>
     )
 }
 }
-export default connect(null,{setCarName})(TabFirst);
+function mapStateToProps(state)
+{
+    return { state };
+}
+export default connect(mapStateToProps,{setCarName})(TabFirst);

@@ -4,7 +4,7 @@ import { Tab, Tabs} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import TabFirst from './TabFirst';
 import TabSecond from './TabSecond';
-class HeaderBanner extends Component {
+export class HeaderBanner extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,10 +12,9 @@ class HeaderBanner extends Component {
         }
     }
 
-    handleSelect(key) {
+    handleSelect=(key)=> {
         this.setState({ key })
     }
-
     render() {
         return (
             <div className="col-sm-offset-7 col-xs-offset-1 head-banner">
@@ -23,7 +22,7 @@ class HeaderBanner extends Component {
                 <Tabs
                     defaultActiveKey={1}
                     activeKey={this.state.key}
-                    onSelect={this.handleSelect.bind(this)}
+                    onSelect={this.handleSelect}
                     id="controlled-tab-example"
                     className="head-section" >
                     <Tab eventKey={1} title="New Cars">
@@ -40,4 +39,4 @@ class HeaderBanner extends Component {
 function mapStateToProps(state) {
     return { state };
 }
-export default connect(mapStateToProps)(HeaderBanner);
+export default connect(mapStateToProps,null)(HeaderBanner);

@@ -6,7 +6,6 @@ class App extends Component
 {
 render()
 {
-    console.log('state',this.props);
     return (
     <div>
     <Header />
@@ -14,7 +13,6 @@ render()
     <Footer />
     </div>
 )
-
 }
 }
 export default App;

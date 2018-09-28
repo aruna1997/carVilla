@@ -29,6 +29,7 @@ h2
     padding-left: 10px;
     margin-top: 5px;
     font-size: 30px;
+    font-weight: bolder;
 }
 .static-banner
 {
@@ -37,7 +38,12 @@ h2
 }
 .car-location
 {
-    color:grey;
-    font-size: 20px;
-    padding-left: 10px;
+    color:dimgrey;
+    font-size: 24px;
+    padding-left: 14px;
+}
+.subtitle
+{
+    padding-left: 14px;
+    color: lightslategray;
 }

@@ -5,7 +5,7 @@ const data=(state=[],action)=>{
     {
         case SET_CITY:
         const {city}=action;
-        return {city};
+        return {...state,city};
 
         case SET_MAX_PRICE:
         const {maxPrice}=action;
