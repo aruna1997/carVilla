@@ -1,8 +1,8 @@
 import React from 'react';
 import ItemsCarousel from 'react-items-carousel';
 import range from 'lodash/range';
-import rightChevron from './images/right-chevron.png';
-import leftChevron from './images/left-chevron.png';
+import rightChevron from '../images/right-chevron.png';
+import leftChevron from '../images/left-chevron.png';
  
 export default class Test extends React.Component {
  

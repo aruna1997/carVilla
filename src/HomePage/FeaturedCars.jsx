@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import "./Featured.css";
 import Random from './Random';
-import staticBanner from './images/static-banner.jpg';
+import staticBanner from '../images/static-banner.jpg';
 /* const featured=[
  {
    name:'One',
@@ -68,7 +68,7 @@ class FeaturedCars extends Component{
   }
   showSlider()
   {
-    if(!this.state.loading&&this.state.data.length!=0)
+    if(!this.state.loading&&this.state.data.length!==0)
     {
      return (<Random data={this.state.data}/>)
     }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import "./Header.css";
+import "./Featured.css";
 import {FormControl, FormGroup, Button } from 'react-bootstrap';
 import {setCity,setMaxPrice,setMinPrice} from '../actions';
-class TabSecond extends Component {
+export class TabSecond extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +11,10 @@ class TabSecond extends Component {
             maxPrice: Number.MAX_SAFE_INTEGER,
             city: ''
         }
-        this.minPrice = React.createRef();
+    }
+    componentDidMount()
+    {
+     this.b.focus();
     }
     handleChangeCity(event) {
         this.setState({ city: event.target.value });
@@ -34,7 +37,6 @@ class TabSecond extends Component {
         }
     }
     changeMinPrice = (value, check) => {
-        console.log(value);
         this.setState({ minPrice: value });
         if (check !== 0) {
             document.getElementById("min-list").style.display = "none";
@@ -73,10 +75,8 @@ class TabSecond extends Component {
 
     }
     render() {
-        console.log('props2',this.props);
-        
         return (
-            <form>
+            <div>
                 <FormGroup
                     validationState={this.getValidPrice()}>
                     <div className="row">
@@ -87,6 +87,7 @@ class TabSecond extends Component {
                                 placeholder="Enter City..."
                                 onChange={this.handleChangeCity.bind(this)}
                                 className="input-section no-border"
+                                inputRef={(ref)=>{this.b=ref}}
                             />
                         </div>
                         <div className="col-xs-5 no-padding">
@@ -102,13 +103,12 @@ class TabSecond extends Component {
                                     <div className="row max-min">
                                         <div className="col-xs-offset-1 col-xs-4 no-padding">
                                             <FormControl
-                                                id="formControlsText"
+                                                id="Min-price"
                                                 type="number"
                                                 min='0'
                                                 placeholder="Min.."
-                                                value={this.state.minPrice}
-                                                inputRef={(input) => this.minimumPrice = input}
-                                                onChange={() => { this.changeMinPrice(this.minimumPrice.valueAsNumber, 0) }}
+                                                
+                                                onChange={(event) => { this.changeMinPrice(event.target.valueAsNumber, 0)}}
                                                 onClick={() => {
                                                     document.getElementById("min-list").style.display = "block";
                                                     document.getElementById("max-list").style.display = "none";
@@ -117,13 +117,12 @@ class TabSecond extends Component {
                                         </div>
                                         <div className="col-xs-offset-2 col-xs-4 no-padding">
                                             <FormControl
+                                                id="Max-price"
                                                 type="number"
                                                 min={this.state.minPrice}
-                                                value={this.state.maxPrice}
                                                 placeholder="Max.."
-                                                inputRef={(input) => this.maximumPrice = input}
                                                 onChange={event => {
-                                                    this.changeMaxPrice(this.maximumPrice.valueAsNumber, 0)
+                                                    this.changeMaxPrice(event.target.valueAsNumber, 0)
                                                 }}
                                                 onClick={() => {
                                                     if (this.state.maxPrice === Number.MAX_SAFE_INTEGER) {
@@ -163,13 +162,13 @@ class TabSecond extends Component {
                         </div>
                     </div>
                 </FormGroup>
-            </form>
+            </div>
         )
     }
 }
 function mapStateToProps(state)
 {
-    const {carName} = state;
-    return {carName};
+    const {carName,city,maxPrice,minPrice} = state;
+    return {carName,city,maxPrice,minPrice};
 }
 export default connect(mapStateToProps, { setCity, setMaxPrice, setMinPrice })(TabSecond);

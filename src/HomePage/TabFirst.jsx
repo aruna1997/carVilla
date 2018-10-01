@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import "./Header.css";
+import "./Featured.css";
 import {FormControl,FormGroup,Button} from 'react-bootstrap';
 import {setCarName} from '../actions';
 import {connect} from 'react-redux';
@@ -11,7 +11,11 @@ export class TabFirst extends Component
      this.state={
          carName:''
      }
- }    
+ }   
+ componentDidMount()
+    {
+        this.car.focus();
+    } 
  handleChange(event)
  {
      this.setState({carName:event.target.value})
@@ -28,6 +32,7 @@ render()
                             placeholder="Enter Name..."
                             onChange={this.handleChange.bind(this)}
                             className="input-section no-border"
+                            inputRef={(ref)=>{this.car=ref}}
                         />
                     </div>
                     <div className="col-xs-2 no-padding">
