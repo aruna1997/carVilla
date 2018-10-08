@@ -2,6 +2,9 @@ import React,{Component} from 'react';
 import "./Featured.css";
 import Random from './Random';
 import staticBanner from '../images/static-banner.jpg';
+import LinearBuffer from '../carListingPage/LinearBuffer';  
+import { connect } from "react-redux";
+import {setCarRecord} from "../actions"
 /* const featured=[
  {
    name:'One',
@@ -52,15 +55,19 @@ class FeaturedCars extends Component{
   }
   myOptions = {
       method: 'GET',
-      cache: 'default'
+      cache: 'default',
+      headers:{
+        'Authorization':'Bearer connectwithapi'
+      }
     };
   componentDidMount()
   {
-    const url='http://172.18.3.90:3000/api/v1/cars';
+    const url='http://172.18.3.90:3001/api/v1/cars';
     fetch(url,this.myOptions)
     .then(response =>response.json())
     .then(json=>{
       this.setState({data:json.data})
+      this.props.setCarRecord(this.state.data)
       this.setState({loading:false})
     }).catch(e => {
       console.log(e);
@@ -68,17 +75,17 @@ class FeaturedCars extends Component{
   }
   showSlider()
   {
-    if(!this.state.loading&&this.state.data.length!==0)
+    if(!this.state.loading)
     {
      return (<Random data={this.state.data}/>)
     }
     else
     {
-      return "one";
+    return (<div><LinearBuffer/></div>);
     }
   }
 render()
-{
+{ 
 return(
 <div>
     <h2 className="feature-title">Featured Cars</h2>
@@ -92,4 +99,8 @@ return(
 ) 
 }
 }
-export default FeaturedCars;
+function mapStateToProps(state)
+{
+  return state;
+}
+export default connect(mapStateToProps,{setCarRecord})(FeaturedCars);

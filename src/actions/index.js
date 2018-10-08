@@ -1,4 +1,4 @@
-import {SET_CITY,SET_MAX_PRICE,SET_MIN_PRICE,SET_CAR_NAME} from '../constants';
+import {SET_CITY,SET_MAX_PRICE,SET_MIN_PRICE,SET_CAR_NAME,SET_CAR_RECORD} from '../constants';
 export const setCity=(city)=>{
     return {type:SET_CITY,city}
 }
@@ -10,4 +10,7 @@ export const setMinPrice=(minPrice)=>{
 }
 export const setCarName=(carName)=>{
     return {type:SET_CAR_NAME,carName}
+}
+export const setCarRecord=(data)=>{
+    return {type:SET_CAR_RECORD,data}
 }

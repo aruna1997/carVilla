@@ -1,6 +1,6 @@
-import {SET_CITY,SET_MAX_PRICE,SET_MIN_PRICE,SET_CAR_NAME} from '../constants';
+import {SET_CITY,SET_MAX_PRICE,SET_MIN_PRICE,SET_CAR_NAME,SET_CAR_RECORD} from '../constants';
 
-const data=(state=[],action)=>{
+const data=(state={},action)=>{
     switch(action.type)
     {
         case SET_CITY:
@@ -18,6 +18,10 @@ const data=(state=[],action)=>{
         case SET_CAR_NAME:
         const {carName}=action;
         return {...state,carName};
+        
+        case SET_CAR_RECORD:
+        const {data}=action;
+        return {...state,data};
 
         default:
         return state;

@@ -14,7 +14,7 @@ export default class Test extends React.Component {
  
     setTimeout(() => {
       this.setState({
-        children: this.createChildren(4),
+        children: this.createChildren(6),
       })
     }, 1000); 
     /* this.setState({
@@ -24,7 +24,7 @@ export default class Test extends React.Component {
  
   createChildren = n => range(n).map(i =>
     <div key={i} className="car-card">
-     <img src={"http://172.18.3.90:3000"+this.props.data[i].image.url} alt={this.props.data[i].name+"image"} className="img-responsive" style={{width:'350px',height:'200px'}}/>
+     <img src={"http://172.18.3.90:3001"+this.props.data[i].image.url} alt={this.props.data[i].name+"image"} className="img-responsive" style={{width:'350px',height:'200px'}}/>
      <h2 className="car-name">{this.props.data[i].name.toUpperCase()}</h2>
      <div>
      <span className="car-location">&#x20b9;{(this.props.data[i].price/100000).toFixed(2)}Lakh</span>
@@ -41,8 +41,6 @@ export default class Test extends React.Component {
       activeItemIndex,
       children,
     } = this.state;
-   console.log('props',this.props);
-
     return (
       <ItemsCarousel
         numberOfCards={3}
