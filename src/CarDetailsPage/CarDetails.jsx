@@ -16,11 +16,13 @@ class CarDetails extends Component
                    a=key;
                }
            })
-           return <CarView data={a} />;
+           return <div style={{marginTop:"6vw"}}>
+           <CarView data={a} />
+           </div>;
         }
         else
         {
-              return "not there";
+              return <div style={{margin:"100px"}}>"Sorry!Page no Found"</div>;
         }
     }
 }

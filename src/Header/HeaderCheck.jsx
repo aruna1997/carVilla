@@ -48,6 +48,9 @@ function ButtonAppBar(props) {
           <Button color="inherit" variant="text" className={classes.Button} component={Link} to="/carList">
             Login
           </Button>
+          <Button color="inherit" variant="text" className={classes.Button} component={Link} to="/enquire">
+            Submit Enquiry
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
